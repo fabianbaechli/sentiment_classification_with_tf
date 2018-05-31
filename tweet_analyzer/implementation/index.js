@@ -8,14 +8,12 @@ let twitterClient = new Twit({
   access_token_secret: 'IaoiEjzjFIBRV8KBr2roCxPu63WAiT7hlCBNo6UjRf5xy'
 })
 
-twitterClient.get('statuses/user_timeline', { screen_name: 'BarackObama' }, (err, data, response) => {
+twitterClient.get('statuses/user_timeline', {screen_name: 'BarackObama'}, (err, data, response) => {
   console.log(data)
-  fs.writeFile("./dump.txt", JSON.stringify(data), (err) => {
+  fs.writeFile("./dump.json", JSON.stringify(data), (err) => {
     if (err) {
-      return console.log(err);
+      return console.log(err)
     }
     console.log("The file was saved!")
   })
 })
-
-twitterClient.get()
