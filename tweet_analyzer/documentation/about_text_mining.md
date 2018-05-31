@@ -13,12 +13,24 @@ There are many different forms of text mining, but what is very interesting for 
 the so called [concept mining](https://en.wikipedia.org/wiki/Concept_mining).
 
 ### What is concept mining
-Concept mining is the mapping of words to concepts. It pays atention to the "meaning" of a
-text rather than just statistically analysing it's words.
-As you may've guessed this involves arificial intelligence.
+Much of the following text is abstracted from 
+[this](https://pdfs.semanticscholar.org/eb5c/8ae3000a76ec678bd0178fedf4e9b402708c.pdf) document.
+
+Concept mining is the mapping of words to concepts. It pays attention to the "meaning" of a
+text rather than just statistically analyzing it's words.
+As you may've guessed this involves artificial intelligence.
+
 > The concept-based model can effectively discriminate between non-important terms with
 > respect to sentence semantics and terms which hold the concepts that represent the
 > sentence meaning.
+
 This means, I think (I'm rather new to this topic and this quote is from a research paper),
-that just because a word get's thrown around a lot in a sentence, doesn't necessarely mean, that
+that just because a word get's thrown around a lot in a sentence, doesn't necessarily mean, that
 this word represents the "meaning" of a sentence the best.
+
+## High dimensional space and vector space model
+High dimensional space is used to represent a dataset with many different attributes. Every attribute
+maps to a dimension. In text analysis this would mean that you can represent a text in high dimensional
+space by assigning a dimension to every word. This is where the term 'high' in high dimensional springs from.
+After you've mapped your document in a high dimensional space, you can start doing all kinds of fun things
+with it, for example comparing two data sets and determine their similarity.
