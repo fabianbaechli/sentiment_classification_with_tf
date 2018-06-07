@@ -2,3 +2,5 @@ node_modules/
 dump.json
 concept_mining.pdf
 .vscode/
+.DS_Store
+data.csv
