@@ -36,6 +36,9 @@ dimensional springs from. After you've mapped all the terms in the document in a
 you can start doing all kinds of fun things with it, for example comparing two data sets and determine
 their similarity by  mapping the whole document to a vector (document vector).
 
+Mapping a document in high dimensional space could be done like this: represent every document by a
+vector _dtf = (tf1, tf2, , tfn)_, where _tfi_ is the frequency of the _ith_ term.
+
 ## Stop words
 Stop words are words which are not believed to add any significance to a sentence. They are mostly common
 words like 'the', 'and', 'a'. Most of the times, they are removed before analyzing a dataset.
@@ -44,7 +47,30 @@ words like 'the', 'and', 'a'. Most of the times, they are removed before analyzi
 Stemming algorithms transform any word into it's base form. One of the most popular stemming algorithm is
 called Porter stemmer.
 
+## Text clustering
+Document clustering is an _unsupervised_ task. This means that in the training phase, no correct output
+has to be given (in this case, the correct output would be the correct cluster, to which the document should
+be mapped to).
+
+The cluster in this case is a collection of documents with a high level of similarity (high in-cluster 
+similarity). The best way of clustering documents is the _agglomerative hierarchical clustering_.
+
+### IDF
+The inverse document frequency calculates the meaningfulness of a term for the clustering. If a highly
+uncommon word is used in two different documents, these two documents have a higher probability of being
+similar than two documents which both have the word 'and' in them. The IDF is calculated like this:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=IDF_{t}&space;=&space;log\left(&space;\frac{N_{D}&space;}{f_{t}}&space;\right)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?IDF_{t}&space;=&space;log\left(&space;\frac{N_{D}&space;}{f_{t}}&space;\right)" title="IDF_{t} = log\left( \frac{N_{D} }{f_{t}} \right)" /></a>
+
+Where <a href="https://www.codecogs.com/eqnedit.php?latex=N_{d}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_{d}" title="N_{d}" /></a> is the number of documents and <a href="https://www.codecogs.com/eqnedit.php?latex=f_{t}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_{t}" title="f_{t}" /></a> the number of documents which contain
+the term <a href="https://www.codecogs.com/eqnedit.php?latex=t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?t" title="t" /></a>.
+
 ## Terms which are unclear to me
 - Term weighting
 - Sliding window
 - Vector space model (VSM)
+- Document
+  - In my understanding, a document is just a collection of terms. A term in text analysis is typically a
+  word. So a document could be a sentence, a whole list of sentences or just two words together. But I'm
+  not certain about this.
+- Inverse document frequency
