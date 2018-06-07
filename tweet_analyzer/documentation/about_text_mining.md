@@ -73,4 +73,3 @@ the term <a href="https://www.codecogs.com/eqnedit.php?latex=t" target="_blank">
   - In my understanding, a document is just a collection of terms. A term in text analysis is typically a
   word. So a document could be a sentence, a whole list of sentences or just two words together. But I'm
   not certain about this.
-- Inverse document frequency
