@@ -34,10 +34,35 @@ maps to a dimension. In text analysis this would mean that you can represent a t
 space by assigning a dimension to every word (term vector). This is where the term 'high' in high
 dimensional springs from. After you've mapped all the terms in the document in a high dimensional space,
 you can start doing all kinds of fun things with it, for example comparing two data sets and determine
-their similarity by  mapping the whole document to a vector (document vector).
+their similarity by  mapping the whole document to a vector (document vector). The mapping of words
+to a vector is called 'word embedding'. Naturally you'd want to cluster words with similar meaning
+close to each other.
 
 Mapping a document in high dimensional space could be done like this: represent every document by a
 vector _dtf = (tf1, tf2, , tfn)_, where _tfi_ is the frequency of the _ith_ term.
+
+### Word2Vec
+Word2Vec is a model which maps words to vectors (word embedding). It is context based. Words with
+similar context will be placed close to each other. There is a Node.JS implementation of this google
+library [here](https://github.com/Planeshifter/node-word2vec). The output of the Word2Vec model is called
+an embedding matrix. This Vector matrix can then be used as an input for a Deep Learning based approach
+to a Natural Language Processing task.
+
+## RNN
+A recurrent neuronal network is different from a neuronal network. Natural language processing is very
+temporal. That means, that the meaning of a word, which comes later in the sentence than the current
+position, may greatly influence everything that came before. If you take the sentence 'I love how you
+cheated on me you loser', from a NLP perspective, the sentence is very positive at first but then the
+meaning changes completely.
+
+A recurrent neuronal network takes this temporal nature of Natural Language Processing into account.
+It achieves this by:
+- Associating every word in a sentence with a specific time step
+- Associating a hidden state vector with every time step (ht)
+  - The hidden state vector seeks to summarize information from previous time steps
+  - The classic xt vector summarizes information of just one term
+- Implementing a hidden state function which sums the current word vector and the hidden state vector
+  from the previous term.
 
 ## Stop words
 Stop words are words which are not believed to add any significance to a sentence. They are mostly common
@@ -68,8 +93,3 @@ the term <a href="https://www.codecogs.com/eqnedit.php?latex=t" target="_blank">
 ## Terms which are unclear to me
 - Term weighting
 - Sliding window
-- Vector space model (VSM)
-- Document
-  - In my understanding, a document is just a collection of terms. A term in text analysis is typically a
-  word. So a document could be a sentence, a whole list of sentences or just two words together. But I'm
-  not certain about this.
