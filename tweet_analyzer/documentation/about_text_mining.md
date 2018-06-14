@@ -61,8 +61,22 @@ It achieves this by:
 - Associating a hidden state vector with every time step (ht)
   - The hidden state vector seeks to summarize information from previous time steps
   - The classic xt vector summarizes information of just one term
-- Implementing a hidden state function which sums the current word vector and the hidden state vector
-  from the previous term.
+- Implementing a _hidden state_ function which sums the current word vector and the hidden state vector
+  from the previous term. This function creates the hidden state vector for the current time step.
+
+### LTSM
+Long Short Term Memory units enable the hidden state vector h to 'not forget about' long term
+dependencies in the text. Let's say there is some information in a sentence which is tightly
+connected to the information in another sentence. The problem is, that these two tightly connected
+sentences are separated by a couple time steps. LTSM Modules help with this problem and enable the
+RNN to connect these two sentences even though they're separated. They help to make sure, that the
+correct information is stored in the hidden state vector.
+
+LTSM take, like the hidden state function, the term vector of the current time step and the hidden state
+vector of the previous time step and output the hidden state for the current time step. They are
+different from the classical hidden state function in that they implement so called gates. More
+information about these gates can be found 
+[here](http://colah.github.io/posts/2015-08-Understanding-LSTMs/).
 
 ## Stop words
 Stop words are words which are not believed to add any significance to a sentence. They are mostly common
