@@ -27,6 +27,9 @@ firstSentence[6] = wordsList.index("and")
 firstSentence[7] = wordsList.index("inspiring")
 #firstSentence[8] and firstSentence[9] are going to be 0
 
+with tf.Session() as sess:
+    print(tf.nn.embedding_lookup(wordVectors,firstSentence).eval().shape)
+
 positiveFiles = ['./pos/' + f for f in listdir('./pos/') if isfile(join('./pos/', f))]
 negativeFiles = ['./neg/' + f for f in listdir('./neg/') if isfile(join('./neg/', f))]
 numWords = []
@@ -93,7 +96,7 @@ data = tf.Variable(tf.zeros([batchSize, maxSeqLength, numDimensions]),dtype=tf.f
 data = tf.nn.embedding_lookup(wordVectors,input_data)
 lstmCell = tf.contrib.rnn.BasicLSTMCell(lstmUnits)
 lstmCell = tf.contrib.rnn.DropoutWrapper(cell=lstmCell, output_keep_prob=0.75)
-value, _ = tf.nn.dynamic_rnn(lstmCell, data, dtype=tf.float32)
+value, _ = tf.nn.dynamic_rnn(lstmCell, tf.cast(data, tf.float32), dtype=tf.float32)
 weight = tf.Variable(tf.truncated_normal([lstmUnits, numClasses]))
 bias = tf.Variable(tf.constant(0.1, shape=[numClasses]))
 value = tf.transpose(value, [1, 0, 2])
@@ -108,3 +111,24 @@ tf.summary.scalar('Accuracy', accuracy)
 merged = tf.summary.merge_all()
 logdir = "tensorboard/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S") + "/"
 writer = tf.summary.FileWriter(logdir, sess.graph)
+print('model created')
+
+sess = tf.InteractiveSession()
+saver = tf.train.Saver()
+sess.run(tf.global_variables_initializer())
+
+for i in range(iterations):
+  #Next Batch of reviews
+  nextBatch, nextBatchLabels = getTrainBatch();
+  sess.run(optimizer, {input_data: nextBatch, labels: nextBatchLabels})
+
+    #Write summary to Tensorboard
+  if (i % 50 == 0):
+    summary = sess.run(merged, {input_data: nextBatch, labels: nextBatchLabels})
+    writer.add_summary(summary, i)
+
+  #Save the network every 10,000 training iterations
+  if (i % 10000 == 0 and i != 0):
+    save_path = saver.save(sess, "models/pretrained_lstm.ckpt", global_step=i)
+    print("saved to %s" % save_path)
+writer.close()

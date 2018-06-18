@@ -10,3 +10,5 @@ wordslist.txt
 neg/
 pos/
 idsMatrix.npy
+models/
+tensorboard/
