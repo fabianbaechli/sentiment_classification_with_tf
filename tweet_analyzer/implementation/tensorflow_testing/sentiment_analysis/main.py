@@ -2,6 +2,7 @@ import numpy as np
 import tensorflow as tf
 from os import listdir
 from os.path import isfile, join
+import re
 
 wordsList = []
 with open('wordslist.txt', 'r') as file:
@@ -10,18 +11,6 @@ with open('wordslist.txt', 'r') as file:
 
 wordVectors = np.load('wordslist.npy')
 print ('Loaded the word vectors!')
-
-maxSeqLength = 10
-numDimensions = 300
-firstSentence = np.zeros((maxSeqLength), dtype='int32')
-firstSentence[0] = wordsList.index("i")
-firstSentence[1] = wordsList.index("thought")
-firstSentence[2] = wordsList.index("the")
-firstSentence[3] = wordsList.index("movie")
-firstSentence[4] = wordsList.index("was")
-firstSentence[5] = wordsList.index("incredible")
-firstSentence[6] = wordsList.index("and")
-firstSentence[7] = wordsList.index("inspiring")
 
 positiveFiles = ['./pos/' + f for f in listdir('./pos/') if isfile(join('./pos/', f))]
 negativeFiles = ['./neg/' + f for f in listdir('./neg/') if isfile(join('./neg/', f))]
@@ -41,6 +30,6 @@ for nf in negativeFiles:
 print('Negative files finished')
 
 numFiles = len(numWords)
-print('The total number of files is', numFiles)
-print('The total number of words in the files is', sum(numWords))
-print('The average number of words in the files is', sum(numWords)/len(numWords))
+
+maxSeqLength = 250
+strip_special_chars = re.compile("[^A-Za-z0-9 ]+")
