@@ -4,3 +4,8 @@ concept_mining.pdf
 .vscode/
 .DS_Store
 data.csv
+vectors.txt
+wordslist.npy
+wordslist.txt
+neg/
+pos/

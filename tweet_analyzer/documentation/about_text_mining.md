@@ -49,11 +49,11 @@ an embedding matrix. This Vector matrix can then be used as an input for a Deep 
 to a Natural Language Processing task.
 
 ## RNN
-A recurrent neuronal network is different from a neuronal network. Natural language processing is very
-temporal. That means, that the meaning of a word, which comes later in the sentence than the current
-position, may greatly influence everything that came before. If you take the sentence 'I love how you
-cheated on me you loser', from a NLP perspective, the sentence is very positive at first but then the
-meaning changes completely.
+A recurrent neuronal network is different from a classic neuronal network. Natural language
+processing is very temporal. That means, that the meaning of a word, which comes later in the
+sentence than the current position, may greatly influence everything that came before. If you take
+the sentence 'I love how you cheated on me you loser', from a NLP perspective, the sentence is
+very positive at first but then the meaning changes completely.
 
 A recurrent neuronal network takes this temporal nature of Natural Language Processing into account.
 It achieves this by:
