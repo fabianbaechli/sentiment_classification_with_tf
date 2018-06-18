@@ -9,3 +9,4 @@ wordslist.npy
 wordslist.txt
 neg/
 pos/
+idsMatrix.npy
