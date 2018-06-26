@@ -12,3 +12,4 @@ pos/
 idsMatrix.npy
 models/
 tensorboard/
+train.csv
