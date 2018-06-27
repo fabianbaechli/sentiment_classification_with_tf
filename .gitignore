@@ -13,3 +13,6 @@ idsMatrix.npy
 models/
 tensorboard/
 train.csv
+gen1_models/
+gen1_tensorboard/
+train_new.csv
