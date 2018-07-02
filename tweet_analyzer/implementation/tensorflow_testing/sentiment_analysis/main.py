@@ -61,7 +61,7 @@ def getSentenceMatrix(sentence):
     return sentenceMatrix
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serversocket.bind(('localhost', 8080))
+serversocket.bind(('localhost', 9090))
 serversocket.listen(5)
 
 while True:
