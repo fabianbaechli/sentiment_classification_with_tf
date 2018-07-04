@@ -2,7 +2,7 @@
 ## Was
 Ich habe eine Recurrent Neuronal Network implementiert, welches auf Sentiment Classification trainiert ist.
 Ich las zu diesem Zweck verschiedenste Theorie-Resourcen, um mein Verständnis zu dem Thema natural language processing (NLP) zu verbessern.
-Die Erkentnisse aus dieser Theorie-Recherche hielt ich im File about_text_mining.md fest.
+Die Erkentnisse aus dieser Theorie-Recherche hielt ich im File sentiment_classification_with_tf/sentiment_classification_with_tf/documentation/about_text_mining.md fest.
 
 ## Was ist sentiment classification?
 Sentiment classification ist ein Untergebiet der natural language processing.
