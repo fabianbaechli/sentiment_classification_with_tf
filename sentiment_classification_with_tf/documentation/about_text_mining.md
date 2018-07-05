@@ -104,6 +104,22 @@ similar than two documents which both have the word 'and' in them. The IDF is ca
 Where <a href="https://www.codecogs.com/eqnedit.php?latex=N_{d}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_{d}" title="N_{d}" /></a> is the number of documents and <a href="https://www.codecogs.com/eqnedit.php?latex=f_{t}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f_{t}" title="f_{t}" /></a> the number of documents which contain
 the term <a href="https://www.codecogs.com/eqnedit.php?latex=t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?t" title="t" /></a>.
 
+## Supervised vs Unsupervised learning
+### Supervised learning
+The network tries to learn a function, which can accurately predict the output of given inputs. This happens by feeding input into the model and
+letting it predict the output. If the output is correct, the next input is fed into it, if not, the function is altered.
+The type of the prediction, which the model makes can be split into two categories:
+
+__Classification:__ The model tries to map the input to a given category. Sentiment analysis is a classic example of a classification problem.
+__Regression:__ The model's output is a real value such as 10 (CHF) or 20 (Kilos)
+
+### Unsupervised learning
+There is no correct output to a given input data. The model tries to learn more about a given dataset. A classic example for this is the
+algorithm Word2Vec which creates a clustering of terms in high dimensional space based on their semantical similarity.
+The type of the prediction, which the model makes can be split into two categories:
+__Clustering:__ You want to group the data based on its similarity.
+__Association:__ You want to find connections between data. (Which of our customers is likely to buy x)
+
 ## Terms which are unclear to me
 - Term weighting
 - Sliding window
