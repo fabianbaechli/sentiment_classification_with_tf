@@ -3,7 +3,7 @@
 Ich habe eine Recurrent Neuronal Network implementiert, welches auf Sentiment Classification trainiert ist.
 Ich las zu diesem Zweck verschiedenste Theorie-Resourcen, um mein Verständnis zu dem Thema natural language processing (NLP) zu verbessern.
 Die Erkentnisse aus dieser Theorie-Recherche hielt ich im File sentiment_classification_with_tf/documentation/about_text_mining.md fest.
-Das GitHub Repository befindet sich [hier](https://github.com/fabianbaechli/sentiment_classification_with_tf)
+Das GitHub Repository befindet sich [hier](https://github.com/fabianbaechli/sentiment_classification_with_tf). Die Implementierung vom Model befindet sich [hier](https://github.com/fabianbaechli/sentiment_classification_with_tf/tree/master/sentiment_classification_with_tf/implementation/tensorflow_testing/sentiment_analysis)
 
 ## Was ist sentiment classification?
 Sentiment classification ist ein Untergebiet der natural language processing.
